@@ -30,6 +30,7 @@ const ChatBox = () => {
         (a, b) => a.createdAt - b.createdAt
       );
       setMessages(sortedMessages);
+      scroll.current.scrollIntoView({ block: 'end', behavior: "smooth" });
     });
     return () => unsubscribe;
   }, []);
