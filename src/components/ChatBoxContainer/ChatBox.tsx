@@ -22,6 +22,7 @@ const ChatBox: FC<MessageProps> = ({ messages }) => {
         </div>
         );
       })}
+      {!messages.length && <div className="no-data">No Messages to Display. Type in the input box below to start group chat.</div>}
     </div>
   );
 };
