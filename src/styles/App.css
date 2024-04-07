@@ -21,18 +21,17 @@ input {
 .App {
   width: 100%;
   min-height: 100vh;
-  background-color: #1c2c4c;
-  color: #4c768d;
   padding-top: 60px;
+  background-color: #073b4c;
 }
 
 /* navbar */
-.nav-bar {
+.top-nav {
   padding: 10px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #4c768d;
+  background-color: #f2fdff;
   color: #242443;
   height: 60px;
   position: fixed;
@@ -59,13 +58,13 @@ input {
 }
 
 /* welcome page */
-.welcome {
+.welcome-page {
   padding: 30px;
   text-align: center;
   margin-top: 40px;
-  color: #7cc5d9;
+  color: #fefae0;
 }
-.welcome :is(h2, p, img) {
+.welcome-page :is(h2, p, img) {
   margin-bottom: 20px;
 }
 
