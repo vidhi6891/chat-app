@@ -1,25 +1,26 @@
+import { FC } from 'react';
 import { auth } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import "./App.css";
-import NavBar from "./components/NavBar";
-import ChatBox from "./components/ChatBox";
+import './styles/App.css';
+import TopNav from "./components/TopNav";
+import ChatBoxContainer from "./components/ChatBoxContainer";
 import WelcomePage from "./components/WelcomePage";
 
-function App() {
+const App: FC = () => {
   const [user] = useAuthState(auth);
 
   return (
     <div className="App">
-      <NavBar />
+      <TopNav />
       {!user ? (
         <WelcomePage />
       ) : (
         <>
-          <ChatBox />
+          <ChatBoxContainer />
         </>
       )}
     </div>
   );
-}
+};
 
 export default App;

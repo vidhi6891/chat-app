@@ -1,27 +1,30 @@
-import React, { useState } from "react";
-import { auth, db } from "../firebase";
+import React, { FC, useState } from "react";
+import { auth, db } from "../../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
-const SendMessage = ({ scroll }) => {
+const InputBox: FC = () => {
   const [message, setMessage] = useState("");
 
-  const sendMessage = async (event) => {
+  const user = auth.currentUser;
+  const sendMessage = async (event: any) => {
     event.preventDefault();
     if (message.trim() === "") {
       alert("Enter valid message");
       return;
     }
     setMessage("");
-    const { uid, displayName, photoURL } = auth.currentUser;
-    await addDoc(collection(db, "chats"), {
-      "chat-text": message,
-      "name": displayName,
-      "avatar": photoURL,
-      "createdAt": serverTimestamp(),
-      uid,
-    });
-    scroll.current.scrollIntoView({ block: 'start', behavior: "smooth" });
+    if(user) {
+    const { uid, displayName, photoURL } = user;
+      await addDoc(collection(db, "chats"), {
+        "text": message,
+        "name": displayName,
+        "photoURL": photoURL,
+        "createdAt": serverTimestamp(),
+        uid,
+      });
+    }
   };
+  
   return (
     <form onSubmit={(event) => sendMessage(event)} className="send-message">
       <label htmlFor="messageInput" hidden>
@@ -32,7 +35,7 @@ const SendMessage = ({ scroll }) => {
         name="messageInput"
         type="text"
         className="form-input__input"
-        placeholder="type message..."
+        placeholder="Message text"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
@@ -41,4 +44,4 @@ const SendMessage = ({ scroll }) => {
   );
 };
 
-export default SendMessage;
+export default InputBox;
