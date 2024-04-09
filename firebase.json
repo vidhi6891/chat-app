@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "https://github.com/vidhi6891/chat-app.git",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
