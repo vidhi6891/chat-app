@@ -38,7 +38,7 @@ const InputBox: FC = () => {
         name="messageInput"
         type="text"
         className="form-input__input"
-        placeholder="Message text"
+        placeholder="Type your message here"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />

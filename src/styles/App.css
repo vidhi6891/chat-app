@@ -23,6 +23,7 @@ input {
   min-height: 100vh;
   padding-top: 60px;
   background-color: #073b4c;
+  background-image: url(/public/doodle_background.png);
 }
 
 .meeting-id-error {
@@ -70,6 +71,8 @@ input {
   text-align: center;
   margin-top: 40px;
   color: #fefae0;
+  background-color: #073b4c;
+  height: 300px;
 }
 .welcome-page :is(h2, p, img) {
   margin-bottom: 20px;
@@ -82,25 +85,28 @@ input {
   .no-data {
     color: #fefae0;
     text-align: center;
+    background-color: #073b4c;
+    height: 200px;
+    align-content: center;
   }
 }
 .chat-bubble {
-  border-radius: 20px 20px 20px 0;
+  border-radius: 10px 10px 10px 10px;
   padding: 15px;
   background-color: #7cc5d9;
   color: #1c2c4c;
   width: max-content;
   max-width: calc(100% - 50px);
-  box-shadow: -2px 2px 1px 1px #4c768d;
+  /* box-shadow: -2px 2px 1px 1px #4c768d; */
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
 }
 .chat-bubble.right {
   margin-left: auto;
-  border-radius: 20px 20px 0 20px;
+  border-radius: 10px 10px 10px 10px;
   background-color: #fff;
-  box-shadow: -2px 2px 1px 1px #88dded;
+  /* box-shadow: -2px 2px 1px 1px #88dded; */
 }
 .chat-bubble__left {
   width: 35px;
@@ -146,15 +152,15 @@ input {
 }
 .send-message > :is(input, button):focus {
   outline: none;
-  border-bottom: 1px solid #7cc5d9;
+  border-bottom: 1px solid #073b4c;
 }
 .send-message > button {
   width: 70px;
   height: 40px;
   padding: 5px 10px;
   border-radius: 0 5px 5px 0;
-  color: #242443;
-  border: 1px solid #7cc5d9;
-  background-color: #7cc5d9;
+  color: white;
+  border: 1px solid #073b4c;
+  background-color: #073b4c;
   font-weight: 600;
 }
