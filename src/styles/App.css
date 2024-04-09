@@ -25,6 +25,13 @@ input {
   background-color: #073b4c;
 }
 
+.meeting-id-error {
+  display: flex;
+  color: red;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 /* navbar */
 .top-nav {
   padding: 10px 30px;

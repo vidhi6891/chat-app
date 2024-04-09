@@ -1,23 +1,27 @@
-import React, { useEffect, useRef, useState, FC } from "react";
+import React, { useEffect, useRef, useState, FC, useContext } from "react";
 import {
   query,
   collection,
   orderBy,
-  onSnapshot
+  onSnapshot,
+  where
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import InputBox from "./InputBox";
 import ChatBox from './ChatBox';
 import { MessageItem } from '@shared/types';
+import { MeetingIdContext } from '../../shared/constants';
 
 const ChatBoxContainer: FC = () => {
+  const meetingContext = useContext(MeetingIdContext);
   const [messages, setMessages] = useState<MessageItem[]>([]);
   const scrollBottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const q = query(
-      collection(db, "chats"),
-      orderBy("createdAt")
+    let q = query(
+      collection(db, 'chats'), 
+      where('meetingId', "==", meetingContext?.meetingId),
+      orderBy('createdAt')
     );
 
     const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
@@ -25,6 +29,7 @@ const ChatBoxContainer: FC = () => {
       QuerySnapshot.forEach((doc) => {
         fetchedMessages.push({ ...doc.data(), id: doc.id } as MessageItem);
       });
+
       setMessages(fetchedMessages);
       scrollBottomRef.current?.scrollIntoView({ block: 'end', behavior: "smooth" });
     });

@@ -1,8 +1,10 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useContext } from "react";
 import { auth, db } from "../../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { MeetingIdContext } from '../../shared/constants';
 
 const InputBox: FC = () => {
+  const meetingContext = useContext(MeetingIdContext);
   const [message, setMessage] = useState("");
 
   const user = auth.currentUser;
@@ -20,6 +22,7 @@ const InputBox: FC = () => {
         "name": displayName,
         "photoURL": photoURL,
         "createdAt": serverTimestamp(),
+        "meetingId": meetingContext?.meetingId,
         uid,
       });
     }
