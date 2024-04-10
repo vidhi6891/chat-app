@@ -7,7 +7,7 @@ Working version of the chat is hosted here - https://doodlechat709.web.app/
 1. First page is the login page - where the user has the option to either create a new meeting or join an existing meeting
 ![image](https://github.com/vidhi6891/chat-app/assets/45257472/40d85cef-4aba-44b2-9593-311a1f1fbb7e)
 
-2. Once the organiser creats a meeting and signs in using google login - he will see the chat window. For a new meeting the chats will be empty
+2. Once the organiser creats a meeting and signs in using google login - he will see the chat window. For a new meeting the chats will be empty 
 ![image](https://github.com/vidhi6891/chat-app/assets/45257472/322f1e8b-8d14-4f72-8faf-affa1291b4d2)
 
 3. Second user can join the same meeting using the meetingID - if he/she/they try to login without a meeting id the system gives a prompt to enter an ID
